@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".Operac1_Girar">
+
+    <EditText
+        android:id="@+id/et_montoGiro"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:hint="Monto a girar"
+        android:inputType="number" />
+
+    <Button
+        android:id="@+id/bt_girar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:onClick="Girar"
+        android:text="Girar" />
+
+    <Button
+        android:id="@+id/bt_historial"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Historial" />
+
+    <Button
+        android:id="@+id/bt_regresar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:onClick="Volver"
+        android:text="Volver" />
+
+</LinearLayout>

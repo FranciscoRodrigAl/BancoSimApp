@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".Operaciones">
+
+    <TextView
+        android:id="@+id/tvRut"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Rut"
+        android:textAlignment="center"
+        android:textSize="34sp" />
+    <TextView
+        android:id="@+id/tvNombres"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Nombres"
+        android:textAlignment="center"
+        android:textSize="34sp" />
+    <TextView
+        android:id="@+id/tvApellidos"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Apellidos"
+        android:textAlignment="center"
+        android:textSize="34sp" />
+    <TextView
+        android:id="@+id/tvSaldo"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Saldo"
+        android:textAlignment="center"
+        android:textSize="34sp" />
+
+    <Button
+        android:id="@+id/btGirar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:onClick="Girar"
+        android:text="Girar" />
+
+    <Button
+        android:id="@+id/btDepositar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Depositar" />
+
+    <Button
+        android:id="@+id/btPagar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Pagar" />
+</LinearLayout>

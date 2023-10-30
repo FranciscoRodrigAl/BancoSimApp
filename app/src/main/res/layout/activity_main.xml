@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".MainActivity">
+
+
+    <EditText
+        android:id="@+id/et_rut"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:hint="Ingrese RUT"
+        android:inputType="text" />
+
+    <EditText
+        android:id="@+id/et_nombres"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:hint="Ingrese Nombres"
+        android:inputType="text" />
+
+    <EditText
+        android:id="@+id/et_apellidos"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:hint="Ingrese Apellidos"
+        android:inputType="text" />
+
+    <EditText
+        android:id="@+id/et_montoGiro"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:hint="Ingrese Saldo"
+        android:inputType="number" />
+
+    <EditText
+        android:id="@+id/et_password"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:hint="Ingrese su password"
+        android:inputType="numberPassword" />
+
+    <EditText
+        android:id="@+id/et_repitePassword"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:hint="repita su password"
+        android:inputType="numberPassword" />
+
+    <Button
+        android:id="@+id/bt_crearCuenta"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:onClick="CrearCuenta"
+        android:text="Crear Cuenta" />
+</LinearLayout>
