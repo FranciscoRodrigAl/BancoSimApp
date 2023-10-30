@@ -12,10 +12,16 @@ import android.view.View;
 import android.widget.EditText;
 import android.widget.Toast;
 
+import java.text.SimpleDateFormat;
+import java.util.Date;
+
 public class Operac1_Girar extends AppCompatActivity {
 
     EditText et_MontoGiro;
     Cuenta cuenta;
+
+    SimpleDateFormat formato = new SimpleDateFormat("dd-MM-yyyy HH:mm:ss");
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -29,7 +35,7 @@ public class Operac1_Girar extends AppCompatActivity {
         try {
             boolean respuestaGiro = cuenta.Girar(montoGiro);
             if(respuestaGiro){
-                saveTransactions("giros",cuenta.getRut(),montoGiro);
+                saveTransactions("giros",formato.format(new Date()),montoGiro);
                 Toast.makeText(this,"Giro realizado, Saldo:"+String.valueOf(cuenta.getSaldo()),Toast.LENGTH_LONG).show();
             }
         }catch(Exception ex){
@@ -50,9 +56,13 @@ public class Operac1_Girar extends AppCompatActivity {
     }
 
     public void VerHistorial(View view){
-        Intent i = new Intent(this, Historial.class);
-        i.putExtra("objGiros", cuenta);
-        startActivity(i);
+        try {
+            Intent i = new Intent(this, Historial.class);
+            i.putExtra("tituloHistorial", "Giros");
+            startActivity(i);
+        }catch (Exception ex){
+            Toast.makeText(this, "Excepcion" + ex.getMessage(), Toast.LENGTH_SHORT).show();
+        }
     }
 
     @Override
