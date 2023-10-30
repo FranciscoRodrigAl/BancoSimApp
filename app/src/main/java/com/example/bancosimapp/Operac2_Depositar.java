@@ -25,7 +25,7 @@ public class Operac2_Depositar extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_operac2_depositar);
         cuenta = (Cuenta) getIntent().getExtras().getSerializable("objCuenta");
-
+        et_MontoDeposito = findViewById(R.id.et_MontoDeposito);
     }
 
     public void Depositar(View view){
@@ -66,7 +66,6 @@ public class Operac2_Depositar extends AppCompatActivity {
     public boolean onKeyDown(int keyCode, KeyEvent event) {
         if(keyCode == event.KEYCODE_BACK){
             try {
-
                 Intent i  = new Intent(this,Operaciones.class);
                 i.putExtra("cuenta",cuenta);
                 startActivity(i);
@@ -80,6 +79,14 @@ public class Operac2_Depositar extends AppCompatActivity {
         SharedPreferences preferences = getSharedPreferences(collectionName, Context.MODE_PRIVATE);
         SharedPreferences.Editor editor = preferences.edit();
         editor.putString(key, String.valueOf(value));
+        editor.commit();
+        saveUserMoney();
+    }
+
+    public void saveUserMoney(){
+        SharedPreferences preferences = getSharedPreferences("saldos", Context.MODE_PRIVATE);
+        SharedPreferences.Editor editor = preferences.edit();
+        editor.putString(cuenta.getRut(), String.valueOf(cuenta.getSaldo()));
         editor.commit();
     }
 }

@@ -46,11 +46,13 @@
         android:id="@+id/btDepositar"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:onClick="Depositar"
         android:text="Depositar" />
 
     <Button
         android:id="@+id/btPagar"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:onClick="Pagar"
         android:text="Pagar" />
 </LinearLayout>

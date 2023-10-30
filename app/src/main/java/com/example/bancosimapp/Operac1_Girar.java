@@ -85,5 +85,13 @@ public class Operac1_Girar extends AppCompatActivity {
         SharedPreferences.Editor editor = preferences.edit();
         editor.putString(key, String.valueOf(value));
         editor.commit();
+        saveUserMoney();
+    }
+
+    public void saveUserMoney(){
+        SharedPreferences preferences = getSharedPreferences("saldos", Context.MODE_PRIVATE);
+        SharedPreferences.Editor editor = preferences.edit();
+        editor.putString(cuenta.getRut(), String.valueOf(cuenta.getSaldo()));
+        editor.commit();
     }
 }

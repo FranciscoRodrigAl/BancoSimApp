@@ -12,6 +12,7 @@ import android.widget.EditText;
 import android.widget.Toast;
 
 import java.text.SimpleDateFormat;
+import java.util.Date;
 
 public class Operac3_Pagar extends AppCompatActivity {
 
@@ -35,12 +36,25 @@ public class Operac3_Pagar extends AppCompatActivity {
             String rut = String.valueOf(et_PagoRut.getText());
             String password = String.valueOf(et_PagoPassword.getText());
             Double montoPago = Double.parseDouble(String.valueOf(et_MontoPago.getText()));
-
+            if(VerificarCredenciales(rut,password)){
+                if(cuenta.Pagar(rut,password,montoPago)){
+                    saveTransactions("pagos",formato.format(new Date()),montoPago);
+                    Toast.makeText(this,"Pago realizado, Saldo:"+String.valueOf(cuenta.getSaldo()),Toast.LENGTH_LONG).show();
+                }else{
+                    Toast.makeText(this,"No fue posible realizar el pago indicado",Toast.LENGTH_LONG).show();
+                }
+            }else{
+                Toast.makeText(this, "Error en credenciales, intente de nuevo", Toast.LENGTH_SHORT).show();
+            }
         }catch(Exception ex){
-
+            Toast.makeText(this,"Error "+ex.getMessage(),Toast.LENGTH_LONG).show();
         }
 
 
+    }
+
+    public boolean VerificarCredenciales(String rut, String password){
+        return cuenta.getRut().equals(rut) && cuenta.getNumSecreto().equals(password);
     }
 
     public void VerHistorial(View view){
@@ -83,6 +97,14 @@ public class Operac3_Pagar extends AppCompatActivity {
         SharedPreferences preferences = getSharedPreferences(collectionName, Context.MODE_PRIVATE);
         SharedPreferences.Editor editor = preferences.edit();
         editor.putString(key, String.valueOf(value));
+        saveUserMoney();
+        editor.commit();
+    }
+
+    public void saveUserMoney(){
+        SharedPreferences preferences = getSharedPreferences("saldos", Context.MODE_PRIVATE);
+        SharedPreferences.Editor editor = preferences.edit();
+        editor.putString(cuenta.getRut(), String.valueOf(cuenta.getSaldo()));
         editor.commit();
     }
 }

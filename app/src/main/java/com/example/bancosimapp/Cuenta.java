@@ -86,7 +86,7 @@ public class Cuenta implements Serializable {
     }
 
     public boolean Pagar(String rut, String secret, double montoPago) throws Exception{
-        Boolean tieneAcceso = this.rut == rut && this.numSecreto == secret;
+        Boolean tieneAcceso = this.rut.equals(rut) && this.numSecreto.equals(secret);
         Boolean puedePagar = this.saldo - montoPago >= 0;
         if(tieneAcceso && puedePagar){
             saldo += montoPago;
